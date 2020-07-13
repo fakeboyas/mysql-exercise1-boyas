@@ -19,13 +19,29 @@ SELECT * FROM sakila.payment
 WHERE amount > 5.00;    
 
 //nomor 6
-SELECT city.city, country.country FROM sakila.city
+SELECT * FROM sakila.city
 LEFT JOIN sakila.country ON city.country_id = country.country_id
-WHERE country = "India";                                             //nomor 6
+WHERE country = "India";                                  
 
 //nomor 7
-SELECT film.title, category.name FROM sakila.film_category
+SELECT * FROM sakila.film_category
 LEFT JOIN sakila.film ON film_category.film_id = film.film_id
 RIGHT JOIN sakila.category ON film_category.category_id = category.category_id
 WHERE name = "Drama";
 
+//nomor 8
+SELECT title,name,rating FROM sakila.film_category
+LEFT JOIN sakila.film ON film_category.film_id = film.film_id
+RIGHT JOIN sakila.category ON film_category.category_id = category.category_id
+WHERE name = "Drama" and rating = "PG";
+
+//nomor 9
+SELECT store_id, COUNT(*) FROM sakila.customer
+WHERE store_id = 1;
+
+//nomor 10
+SELECT first_name, last_name, country FROM sakila.address 
+JOIN sakila.city ON address.city_id = city.city_id
+JOIN sakila.country ON city.country_id = country.country_id
+JOIN sakila.customer ON address.address_id = customer.address_id
+WHERE first_name = "BERNICE" and last_name = "WILLIS";
