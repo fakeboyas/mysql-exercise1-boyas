@@ -1,0 +1,31 @@
+//nomor1
+SELECT * FROM sakila.film; 
+
+//nomor2
+SELECT * FROM sakila.actor
+WHERE last_name = "HOPPER"; 
+
+
+nomor3
+SELECT * FROM sakila.film
+ORDER BY length ASC;  
+
+nomor4 
+SELECT * FROM sakila.customer
+WHERE first_name like "%CE%"; 
+
+nomor 5
+SELECT * FROM sakila.payment
+WHERE amount > 5.00;    
+
+//nomor 6
+SELECT city.city, country.country FROM sakila.city
+LEFT JOIN sakila.country ON city.country_id = country.country_id
+WHERE country = "India";                                             //nomor 6
+
+//nomor 7
+SELECT film.title, category.name FROM sakila.film_category
+LEFT JOIN sakila.film ON film_category.film_id = film.film_id
+RIGHT JOIN sakila.category ON film_category.category_id = category.category_id
+WHERE name = "Drama";
+
